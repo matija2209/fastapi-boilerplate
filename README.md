@@ -45,12 +45,9 @@ All incoming requests and errors are logged using Google Cloud Logging for monit
 pip freeze > requirements.txt
 
 ## Craete files quickly
-touch app/__init__.py app/main.py app/routes/recording_route.py app/controllers/recording_controller.py app/services/recording_service.py
+`touch app/__init__.py app/main.py app/routes/recording_route.py app/controllers/recording_controller.py app/services/recording_service.py`
 
-touch app/__init__.py app/main.py app/routes/transcription_route.py app/controllers/transcription_controller.py app/services/transcription_service.py
-
-
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/ziberna/ServiceAccounts/medical-practice-408309-fb7f20c8ed0a.json"
+`touch app/__init__.py app/main.py app/routes/transcription_route.py app/controllers/transcription_controller.py app/services/transcrip`tion_service.py`
 
 `uvicorn main:app --reload`
 
@@ -73,7 +70,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/ziberna/ServiceAccounts/medical-pr
 
 
 ### Upload account
-`scp /Users/ziberna/ServiceAccounts/medical-practice-408309-fb7f20c8ed0a.json  matija@23.88.102.236:/home/matija/serviceAccounts`
+`scp /Users/ziberna/ServiceAccounts/serviceAccount.json  matija@xx.xx.xx.xxx:/home/matija/serviceAccounts`
 
 ## Docker
 
@@ -82,8 +79,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/ziberna/ServiceAccounts/medical-pr
 - Push to Hub `sudo docker-compose push`
 — `sudo docker-compose build && sudo docker-compose push`
 - Docker pull
-  `sudo docker pull matija2209/audio-transcriber-service`
-- Run container `sudo docker run -v /home/matija/serviceAccounts/medical-practice-408309-fb7f20c8ed0a.json:/app/key.json -e GOOGLE_APPLICATION_CREDENTIALS=/app/key.json -d -p 4853:80 matija2209/audio-transcriber-service`
+  `sudo docker pull matija2209/dockerized-service`
+- Run container `sudo docker run -v /home/matija/serviceAccounts/serviceAccount.json:/app/key.json -e GOOGLE_APPLICATION_CREDENTIALS=/app/key.json -d -p 4853:80 matija2209/dockerized-service`
 
 _Make sure to create env file to include all variables needed for this microservice to run._
 
