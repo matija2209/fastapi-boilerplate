@@ -1,7 +1,6 @@
 .idea
 .ipynb_checkpoints
 .mypy_cache
-.vscode
 env
 .env
 __pycache__
